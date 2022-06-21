@@ -12,7 +12,6 @@
             </div>
         </div><!-- /.container-fluid -->
         <div class="form-group">
-            <label for="exampleInputFile">File input</label>
             <div class="input-group">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="exampleInputFile">
