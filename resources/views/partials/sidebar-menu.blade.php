@@ -22,7 +22,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="/dashboard" class="nav-link {{ ($title === "dashboard") ? 'active':'' }}">
+            <a href="/dashboard" class="nav-link {{ Request::is('dashboard') ? 'active':'' }}">
               <i class="fa fa-duotone fa-house-blank"></i>
               <p>Beranda</p>
               {{-- <p>
@@ -31,7 +31,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/input-post" class="nav-link {{ ($title === "input-post") ? 'active':'' }}">
+            <a href="/input-post" class="nav-link {{ Request::is('input-post') ? 'active':'' }}">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Buat Artikel
@@ -39,7 +39,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/input-foto" class="nav-link {{ ($title === "input-foto") ? 'active':'' }}">
+            <a href="/input-foto" class="nav-link {{ Request::is('input-foto') ? 'active':'' }}">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Foto Kegiatan
@@ -47,7 +47,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/daftar-post" class="nav-link {{ ($title === "daftar-post") ? 'active':'' }}">
+            <a href="/posts" class="nav-link {{ Request::is('post') ? 'active':'' }}">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Daftar Post

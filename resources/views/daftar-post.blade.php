@@ -17,7 +17,7 @@
                     <tr>
                         <th style="width: 10px">No</th>
                         <th>Artikel</th>
-                        <th>Diunggah oleh</th>
+                        <th>Kategori</th>
                         <th>Update Tanggal</th>
                         <th>Aksi</th>
                     </tr>

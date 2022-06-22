@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
 Route::get('/dashboard', function(){
     return view('dashboard',[
         "title" => "dashboard"
@@ -42,3 +41,8 @@ Route::get('/daftar-feedback', function(){
     ]);
 });
 
+Route::resource('/posts', PostController::class);
+Route::prefix('admin')->group(function(){
+    Route::get('/',[Admin\Auth\LoginController::class, 'loginForm']);
+    Route::get('/login',[Admin\Auth\LoginController::class, 'loginForm'])->name('admin.login');
+});
