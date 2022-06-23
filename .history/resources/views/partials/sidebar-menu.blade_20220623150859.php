@@ -57,7 +57,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/daftar-feedback" class="nav-link {{ Request::is('tanya-keluhan') ? 'active':'' }}">
+            <a href="/daftar-feedback" class="nav-link {{ ($title === "tanya-keluhan") ? 'active':'' }}">
               <i class="nav-icon far fa-envelope"></i>
               <p>
                 Tanya dan Keluhan

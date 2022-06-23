@@ -12,9 +12,7 @@
           <img src="assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          @auth
-          <a href="#" class="d-block">Halo, {{ auth()->user()->name }}</a>
-          @endauth
+          <a href="#" class="d-block">Admin</a>
         </div>
       </div>
 
@@ -33,7 +31,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/input-post" class="nav-link {{ Request::is('input-post') ? 'active':'' }}">
+            <a href="/input-post" class="nav-link {{ ($title === "input-post") ? 'active':'' }}">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Buat Artikel
@@ -41,7 +39,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/input-foto" class="nav-link {{ Request::is('input-foto') ? 'active':'' }}">
+            <a href="/input-foto" class="nav-link {{ ($title === "input-foto") ? 'active':'' }}">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Foto Kegiatan
@@ -49,7 +47,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/dashboard/post" class="nav-link {{ Request::is('post') ? 'active':'' }}">
+            <a href="/posts" class="nav-link {{ ($title === "daftar-post") ? 'active':'' }}">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Daftar Post
@@ -57,7 +55,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/daftar-feedback" class="nav-link {{ Request::is('tanya-keluhan') ? 'active':'' }}">
+            <a href="/daftar-feedback" class="nav-link {{ ($title === "tanya-keluhan") ? 'active':'' }}">
               <i class="nav-icon far fa-envelope"></i>
               <p>
                 Tanya dan Keluhan

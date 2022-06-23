@@ -49,7 +49,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/dashboard/post" class="nav-link {{ Request::is('post') ? 'active':'' }}">
+            <a href="/posts" class="nav-link {{ Request::is('post') ? 'active':'' }}">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Daftar Post
@@ -57,7 +57,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/daftar-feedback" class="nav-link {{ Request::is('tanya-keluhan') ? 'active':'' }}">
+            <a href="/daftar-feedback" class="nav-link {{ ($title === "tanya-keluhan") ? 'active':'' }}">
               <i class="nav-icon far fa-envelope"></i>
               <p>
                 Tanya dan Keluhan

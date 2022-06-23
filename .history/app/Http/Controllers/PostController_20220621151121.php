@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 
-use App\Models\Admin;
-use App\Http\Requests\StoreAdminRequest;
-use App\Http\Requests\UpdateAdminRequest;
-
-class AdminController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        return Post::all();
     }
 
     /**
@@ -32,10 +31,10 @@ class AdminController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAdminRequest  $request
+     * @param  \App\Http\Requests\StorePostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAdminRequest $request)
+    public function store(StorePostRequest $request)
     {
         //
     }
@@ -43,10 +42,10 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show(Post $post)
     {
         //
     }
@@ -54,10 +53,10 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit(Post $post)
     {
         //
     }
@@ -65,11 +64,11 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAdminRequest  $request
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Http\Requests\UpdatePostRequest  $request
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAdminRequest $request, Admin $admin)
+    public function update(UpdatePostRequest $request, Post $post)
     {
         //
     }
@@ -77,10 +76,10 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(Post $post)
     {
         //
     }

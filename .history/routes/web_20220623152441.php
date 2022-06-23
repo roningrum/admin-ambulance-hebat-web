@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\DashboardPostController;
@@ -42,7 +43,7 @@ Route::get('/daftar-feedback', function(){
     ]);
 });
 
-Route::resource('/dashboard/post', DashboardPostController::class)->middleware('auth');
+Route::resource('/dashboard/post', DashboardPostController::class);
 Route::get('/',[Admin\Auth\LoginController::class, 'loginForm']);
 Route::post('/',[Admin\Auth\LoginController::class, 'authenticate'])->name('login');
 Route::post('/logout',[Admin\Auth\LoginController::class, 'logout']);
