@@ -19,7 +19,7 @@ Route::get('/dashboard', function(){
     return view('dashboard',[
         "title" => "dashboard"
     ]);
-});
+})->middleware('auth');
 Route::get('/input-post', function(){
     return view('post',[
         "title" =>"input-post"
@@ -42,7 +42,6 @@ Route::get('/daftar-feedback', function(){
 });
 
 Route::resource('/posts', PostController::class);
-Route::prefix('admin')->group(function(){
-    Route::get('/',[Admin\Auth\LoginController::class, 'loginForm']);
-    Route::get('/login',[Admin\Auth\LoginController::class, 'loginForm'])->name('admin.login');
-});
+Route::get('/',[Admin\Auth\LoginController::class, 'loginForm']);
+Route::post('/',[Admin\Auth\LoginController::class, 'authenticate'])->name('login');
+Route::post('/logout',[Admin\Auth\LoginController::class, 'logout']);

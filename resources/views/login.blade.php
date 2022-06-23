@@ -21,20 +21,39 @@
 <body>
     <div class="container-login">
         <div class="wrap-login">
-            <form action="" class="login-form text-center">
+            <form action="/" method="post" class="login-form text-center">
+                @if (session()->has('success'))
+                <div class="container">
+                    <div class="row" id="error-container">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @if (session()->has('loginError'))
+                <div class="container">
+                    <div class="row" id="error-container">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session('loginError') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                        </div>
+                    </div>
+                </div>
+                @endif
                 <img class="mt-4 mb-4" src="assets/ahha_logo.png" alt="logo-ambulancehebat" height="150">
                 <h1 class="login-form-title">Login Admin Web</h1>
+                @csrf
                 <div class="wrap-input">
-                    <input type="text" id="username" class="input-form" placeholder="username">
+                    <input type="text" name="username" id="username" class="input-form" placeholder="username" autofocus required>
                 </div>
                 <div class="wrap-input">
-                    <input type="password" id="password" class="input-form" placeholder="password">
+                    <input type="password" name="password" id="password" class="input-form" placeholder="password" required>
                 </div>
                 <div class="container-login-btn-form mt-3">
-                    <button class="login-btn-form">
-                        <a href='/dashboard'>
-                            Masuk
-                        </a>
+                    <button class="login-btn-form" type="submit">
+                        Masuk
                       </button> 
                 </div>
             </form>
