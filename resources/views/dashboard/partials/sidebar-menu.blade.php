@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="/dashboard" class="brand-link">
        <span class="brand-text font-weight-light">Ambulance Hebat Web<br>Admin</span>
     </a>
 

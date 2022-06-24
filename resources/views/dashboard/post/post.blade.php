@@ -12,31 +12,31 @@
             </div><!-- /.container-fluid -->
         </section>
         <div class="card-body">
-            <table class="table table-bordered">
+            <table class="table table-bordered col-lg-10">
                 <thead>
                     <tr>
                         <th style="width: 10px">No</th>
                         <th>Artikel</th>
                         <th>Kategori</th>
-                        <th>Update Tanggal</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($posts as $post )
                     <tr>
-                        <td>1.</td>
-                        <td>Update software</td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $post->title }}</td>
+                        <td>{{ $post->category->name }}</td>
                         <td>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-danger">55%</span></td>
-                        <td>
+                            <button type="button" class="btn bg-info">
+                                <a href="/dashboard/post/{{ $post->id }}">
+                                    <i class="fa-solid fa-eye"></i></button>
+                                </a>                          
                             <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
                             <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                         </td>
                     </tr> 
+                    @endforeach
                 </tbody>
             </table>
         </div>
