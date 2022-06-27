@@ -15,25 +15,26 @@
         <section class="content">
             <form method="post" action="/dashboard/post">
                 <div class="card-body">
-                  <div class="form-group">
-                    <label for="title">Judul Post</label>
-                    <input type="text" class="form-control" id="title" name="title">
-                  </div>
-                  {{-- <div class="form-group">
-                    <label>Kategori Post</label>
-                    <select class="form-control">
-                      <option>option 1</option>
-                      <option>option 2</option>
-                      <option>option 3</option>
-                      <option>option 4</option>
-                      <option>option 5</option>
-                    </select>
-                  </div> --}}
-                  <div class="form-group">
-                    <label for="slug">Slug</label>
-                    <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
-                  </div>
-                  {{-- <div class="form-group">
+                    <div class="form-group">
+                        <label for="title">Judul Post</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="slug">Slug</label>
+                        <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Kategori Post</label>
+                        <select class="form-control">
+                            <option>option 1</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                            <option>option 5</option>
+                        </select>
+                    </div>
+                    {{-- <div class="form-group">
                     <label for="exampleInputFile">Unggah Foto Kegiatan</label>
                     <div class="input-group">
                       <div class="custom-file">
@@ -46,27 +47,27 @@
                     </div>
                   </div> --}}
 
-                  {{-- <div class="form-group">
+                    {{-- <div class="form-group">
                     <label>Isi Post Artikel</label>
                     <textarea class="form-control" rows="5" cols="10" placeholder="Enter ..."></textarea>
                   </div> --}}
 
-                  <button type="submit" class="btn btn-primary text-center">Buat Post</button>
+                    <button type="submit" class="btn btn-primary text-center">Buat Post</button>
 
                 </div>
                 <!-- /.card-body -->
-               
-              </form>
+
+            </form>
         </section>
     </div>
     <script>
-       const title= document.querySelector('#title'); 
-       const slug= document.querySelector('#slug'); 
+        const title = document.querySelector('#title');
+        const slug = document.querySelector('#slug');
 
-       title.addEventListener('change', function(){
-        fetch('/dashboard/post/checkSlug?title=' + title.value)
-        .then(response => response.json())
-        .then(data=> slug.value = data.slug)
-       });
+        title.addEventListener('change', function() {
+            fetch('/dashboard/post/checkSlug?title=' + title.value)
+                .then(response => response.json())
+                .then(data => slug.value = data.slug)
+        });
     </script>
 @endsection
