@@ -33,18 +33,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/input-post" class="nav-link {{ Request::is('input-post') ? 'active':'' }}">
+            <a href="/dashboard/post/create" class="nav-link {{ Request::is('dashboard/post/create') ? 'active':'' }}">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Buat Artikel
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/input-foto" class="nav-link {{ Request::is('input-foto') ? 'active':'' }}">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Foto Kegiatan
+                Buat Post
               </p>
             </a>
           </li>
@@ -57,7 +49,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/daftar-feedback" class="nav-link {{ Request::is('tanya-keluhan') ? 'active':'' }}">
+            <a href="/input-foto" class="nav-link {{ Request::is('input-foto') ? 'active':'' }}">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Foto Kegiatan
+              </p>
+            </a>
+          </li>
+  
+          <li class="nav-item">
+            <a href="/daftar-feedback" class="nav-link {{ Request::is('daftar-feedback') ? 'active':'' }}">
               <i class="nav-icon far fa-envelope"></i>
               <p>
                 Tanya dan Keluhan

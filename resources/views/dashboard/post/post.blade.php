@@ -4,7 +4,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
+                <div class="row">
                     <div class="col-sm-6">
                         <h1>Daftar Artikel</h1>
                     </div>
@@ -12,6 +12,12 @@
             </div><!-- /.container-fluid -->
         </section>
         <div class="card-body">
+            <button type="button" class="btn bg-primary my-2">
+                <a href="">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    Tambah Post Baru
+                </a>
+            </button> 
             <table class="table table-bordered col-lg-10">
                 <thead>
                     <tr>
@@ -30,9 +36,10 @@
                         <td>
                             <button type="button" class="btn bg-info">
                                 <a href="/dashboard/post/{{ $post->slug }}">
-                                    <i class="fa-solid fa-eye"></i></button>
-                                </a>                          
-                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+                            </button>                     
+                            <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button>
                             <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                         </td>
                     </tr> 

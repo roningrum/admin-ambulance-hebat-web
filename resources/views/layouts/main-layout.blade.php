@@ -27,7 +27,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -43,10 +43,10 @@
   <!-- /.content-wrapper -->
   @include('partials.footer-main')
 
-  <!-- Control Sidebar -->
+  {{-- <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
-  </aside>
+  </aside> --}}
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->

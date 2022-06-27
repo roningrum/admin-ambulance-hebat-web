@@ -17,17 +17,13 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/dashboard', function(){
-    return view('dashboard',[
+    return view('dashboard.dashboard',[
         "title" => "dashboard"
     ]);
 })->middleware('auth');
-Route::get('/input-post', function(){
-    return view('post',[
-        "title" =>"input-post"
-    ]);
-});
+
 Route::get('/input-foto', function(){
-    return view('upload-gallery',[
+    return view('dashboard.upload-gallery',[
         "title" =>"input-foto"
     ]);
 });
@@ -37,11 +33,12 @@ Route::get('/daftar-post', function(){
     ]);
 });
 Route::get('/daftar-feedback', function(){
-    return view('tanya-keluhan',[
+    return view('dashboard.tanya-keluhan',[
         "title" =>"tanya-keluhan"
     ]);
 });
 
+Route::get('/dashboard/post/checkSlug',[DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/post', DashboardPostController::class)->middleware('auth');
 Route::get('/',[Admin\Auth\LoginController::class, 'loginForm']);
 Route::post('/',[Admin\Auth\LoginController::class, 'authenticate'])->name('login');
