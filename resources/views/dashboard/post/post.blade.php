@@ -29,7 +29,7 @@
                         <td>{{ $post->category->name }}</td>
                         <td>
                             <button type="button" class="btn bg-info">
-                                <a href="/dashboard/post/{{ $post->id }}">
+                                <a href="/dashboard/post/{{ $post->slug }}">
                                     <i class="fa-solid fa-eye"></i></button>
                                 </a>                          
                             <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
