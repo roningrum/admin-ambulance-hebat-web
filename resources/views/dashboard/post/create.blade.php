@@ -14,44 +14,38 @@
         </section>
         <section class="content">
             <form method="post" action="/dashboard/post">
+                @csrf
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Judul Post</label>
-                        <input type="text" class="form-control" id="title" name="title">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{ old('title') }}">
+                        @error('title')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="slug">Slug</label>
-                        <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
+                        <input type="text" class="form-control" id="slug" name="slug" disabled readonly  value="{{ old('title') }}">
                     </div>
                     <div class="form-group">
                         <label>Kategori Post</label>
-                        <select class="form-control">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
+                        <select class="form-control" name="category_id">
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}" {{ old('category_id') == $category->id?'selected':'' }}>{{ $category->name }}</option>
+                            @endforeach
                         </select>
                     </div>
-                    {{-- <div class="form-group">
-                    <label for="exampleInputFile">Unggah Foto Kegiatan</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
+                    <div class="form-group">
+                        <label for="slug">Body</label>
+                        @error('body')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                        <input id="body" type="hidden" name="body" value="{{ old('body') }}">
+                        <trix-editor input="body"></trix-editor>
                     </div>
-                  </div> --}}
-
-                    {{-- <div class="form-group">
-                    <label>Isi Post Artikel</label>
-                    <textarea class="form-control" rows="5" cols="10" placeholder="Enter ..."></textarea>
-                  </div> --}}
-
                     <button type="submit" class="btn btn-primary text-center">Buat Post</button>
 
                 </div>
@@ -68,6 +62,9 @@
             fetch('/dashboard/post/checkSlug?title=' + title.value)
                 .then(response => response.json())
                 .then(data => slug.value = data.slug)
+        });
+        document.addEventListener('trix-file-accept', function(e){
+            e.preventDefault();
         });
     </script>
 @endsection
