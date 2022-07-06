@@ -12,7 +12,7 @@
             </div><!-- /.container-fluid -->
         </section>
         @if (session()->has('success'))
-            <div class="alert alert-success col-lg-8 justify-content-center ms-auto" id="success-alert" role="alert">
+            <div class="alert alert-success" id="success-alert" role="alert">
                 {{ session('success') }}
             </div>
         @endif
@@ -44,15 +44,11 @@
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
                                 </button>
-                                <a href="/dashboard/posts/{{ $post->slug }}/edit">
-                                    <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
-                                    </button>
-                                </a>
-                             
+                                <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button>
                                 <form action="/dashboard/posts/{{ $post->slug }}"method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button class="btn btn-danger"onclick="return confirm('Yakin Ingin Menghapus?')"><i class="far fa-trash-alt"></i></button>
+                                    <button type="button" class="btn btn-danger"onclick="return confirm('Yakin Ingin Menghapus?')"><i class="far fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

@@ -12,8 +12,12 @@
             </div><!-- /.container-fluid -->
         </section>
         @if (session()->has('success'))
-            <div class="alert alert-success col-lg-8 justify-content-center ms-auto" id="success-alert" role="alert">
+            <div class="alert alert-success" id="success-alert" role="alert">
                 {{ session('success') }}
+            </div>
+        @else
+            <div class="alert alert-danger" id="danger-alert" role="alert">
+                {{ 'Artikel Gagal Ditambahkan, Silakan Coba Lagi' }}
             </div>
         @endif
         <div class="card-body">
@@ -44,16 +48,8 @@
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
                                 </button>
-                                <a href="/dashboard/posts/{{ $post->slug }}/edit">
-                                    <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
-                                    </button>
-                                </a>
-                             
-                                <form action="/dashboard/posts/{{ $post->slug }}"method="post" class="d-inline">
-                                    @method('delete')
-                                    @csrf
-                                    <button class="btn btn-danger"onclick="return confirm('Yakin Ingin Menghapus?')"><i class="far fa-trash-alt"></i></button>
-                                </form>
+                                <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                                <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                             </td>
                         </tr>
                     @endforeach
@@ -64,9 +60,15 @@
     <script>
         $(document).ready(function() {
             $("#success-alert").hide();
-            $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+            $("#danger-alert").hide();
+            $("#myWish").click(function showAlert() {
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
                     $("#success-alert").slideUp(500);
                 });
+                $("#danger-alert").fadeTo(2000, 500).slideUp(500, function() {
+                    $("#success-alert").slideUp(500);
+                });
+            });
         });
     </script>
 @endsection

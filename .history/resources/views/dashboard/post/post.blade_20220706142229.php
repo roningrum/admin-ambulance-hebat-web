@@ -44,11 +44,10 @@
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
                                 </button>
-                                <a href="/dashboard/posts/{{ $post->slug }}/edit">
-                                    <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
-                                    </button>
-                                </a>
-                             
+                                <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
+                                    <a href="/dashboard/posts/{{ $post->slug }}/edit">
+                                    </a>
+                                </button>
                                 <form action="/dashboard/posts/{{ $post->slug }}"method="post" class="d-inline">
                                     @method('delete')
                                     @csrf

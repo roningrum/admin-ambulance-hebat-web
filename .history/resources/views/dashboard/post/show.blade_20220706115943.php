@@ -12,7 +12,7 @@
                         <a href="" class="btn btn-warning">
                             <i class="fa-solid fa-pen-to-square"></i>
                             Ubah</a>
-                            <form action="/dashboard/posts/{{ $posts->slug }}"method="post" class="d-inline">
+                            <form action="/dashboard/posts/{{ $post->slug }}"method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="btn btn-danger"onclick="return confirm('Yakin Ingin Menghapus?')"><i class="far fa-trash-alt"></i>Hapus Artikel</button>

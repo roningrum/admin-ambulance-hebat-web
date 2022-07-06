@@ -82,10 +82,7 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('dashboard.post.edit', [
-            'post' => $post,
-            'categories'=> Category::all()
-        ]);
+        //
     }
 
     /**
@@ -98,21 +95,6 @@ class DashboardPostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
-        $rules =[
-            'title' =>'required|max:255',
-            'slug' => 'required|unique:posts',
-            'category_id' =>'required',
-            'body'=>'required',
-            'img_blog'=>'https://images.unsplash.com/photo-1656611756205-72ec80b8c98b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
-        ];
-
-        // if($request->slug != $post->slug){
-        //     $rules['slug'] = 'required|unique:posts';
-        // }
-
-        $validatedData = $request->validate($rules);
-
-      
     }
 
     /**

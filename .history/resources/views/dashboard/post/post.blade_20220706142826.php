@@ -46,6 +46,7 @@
                                 </button>
                                 <a href="/dashboard/posts/{{ $post->slug }}/edit">
                                     <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
+                                   
                                     </button>
                                 </a>
                              
