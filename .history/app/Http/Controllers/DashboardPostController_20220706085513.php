@@ -56,16 +56,10 @@ class DashboardPostController extends Controller
         // var_dump($validatedData['user_id']);
         $validatedData['excerpt']= Str::limit(strip_tags($request->body, 200));
         // die();
-        // $query = 
-        // dd($query);
-        // die();
-        var_dump($validatedData);
+        $query =  Post::created($validatedData);
+        dd($query);
         die();
-        // DB::enableQueryLog();
-        // $product= Post::created($validatedData);
-        // $query = DB::getQueryLog();
-        // dd($query);
-        return redirect('/dashboard/posts')->with('success', 'Artikel baru berhasil ditambahkan');
+        // return redirect('/dashboard/posts')->with('success', 'Artikel baru berhasil ditambahkan');
 
     }
 

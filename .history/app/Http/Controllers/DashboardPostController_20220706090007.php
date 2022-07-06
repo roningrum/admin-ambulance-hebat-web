@@ -59,12 +59,10 @@ class DashboardPostController extends Controller
         // $query = 
         // dd($query);
         // die();
-        var_dump($validatedData);
-        die();
-        // DB::enableQueryLog();
-        // $product= Post::created($validatedData);
-        // $query = DB::getQueryLog();
-        // dd($query);
+        DB::enableQueryLog();
+        $product= Post::created($validatedData);
+        $query = DB::getQueryLog();
+        dd($query);
         return redirect('/dashboard/posts')->with('success', 'Artikel baru berhasil ditambahkan');
 
     }

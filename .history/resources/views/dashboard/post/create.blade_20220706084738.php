@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Judul Post</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value={{ old('title') }}>
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="title">
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
