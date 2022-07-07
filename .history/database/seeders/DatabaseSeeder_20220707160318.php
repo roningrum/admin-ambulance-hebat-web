@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
             'password'=>bcrypt('admin1234'),
             'role'=>'admin',
             'remember_token'=>Str::random(10),
-        ],);
-        User::factory(2)->create();
+        ],
+    );
         Category::create([
             'name' => 'Tutorial',
             'slug'=>'tutorial'

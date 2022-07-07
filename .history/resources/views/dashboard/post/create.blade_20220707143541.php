@@ -13,7 +13,7 @@
             </div><!-- /.container-fluid -->
         </section>
         <section class="content">
-            <form method="post" action="/dashboard/posts" enctype="multipart/form-data">
+            <form method="post" action="/dashboard/posts">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
@@ -25,12 +25,15 @@
                             </div>
                         @enderror
                     </div>
-                  
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                      </div>
                     <div class="mb-3">
                         <label for="slug" class="form-label">Slug</label>
                         <input type="text" class="form-control" id="slug" name="slug" required value={{ old('slug') }}>
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group">
                         <label>Kategori Post</label>
                         <select class="form-control" name="category_id">
                             @foreach ($categories as $category)
@@ -38,11 +41,6 @@
                             @endforeach
                         </select>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Upload Foto</label>
-                        <input class="form-control" type="file" id="image" name="image">
-                      </div>
 
                     <div class="form-group">
                         <label for="slug">Body</label>

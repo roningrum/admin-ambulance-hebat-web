@@ -39,9 +39,9 @@
                         </select>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Upload Foto</label>
-                        <input class="form-control" type="file" id="image" name="image">
+                    <div class="custom-file mb-3">
+                        <input type="file" class="custom-file-input" id="image">
+                        <label class="custom-file-label" for="image" name="image">Upload Gambar</label>
                       </div>
 
                     <div class="form-group">

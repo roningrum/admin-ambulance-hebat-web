@@ -40,8 +40,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="image" class="form-label">Upload Foto</label>
-                        <input class="form-control" type="file" id="image" name="image">
+                        <label for="formFile" class="form-label">Default file input example</label>
+                        <input class="form-control" type="file" id="formFile">
                       </div>
 
                     <div class="form-group">
