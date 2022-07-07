@@ -15,7 +15,7 @@ use App\Http\Controllers\DashboardPostController;
 |
 */
 
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware('auth');
+Route::get('/dashboard', DashboardController::class)->middleware('auth');
 
 Route::get('/input-foto', function(){
     return view('dashboard.upload-gallery',[

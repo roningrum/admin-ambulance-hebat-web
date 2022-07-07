@@ -110,12 +110,8 @@ class DashboardPostController extends Controller
             $rules['slug'] = 'required|unique:posts';
         }
 
-        $validatedData = $request->validate($rules);
         $validatedData['user_id']= auth()->user()->id;
         $validatedData['excerpt']= Str::limit(strip_tags($request->body, 200));
-
-        // var_dump($validatedData);
-        // die();
 
         Post::where('id', $post->id)
         ->update($validatedData);

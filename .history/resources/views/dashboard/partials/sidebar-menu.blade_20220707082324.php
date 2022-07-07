@@ -66,8 +66,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa-solid fa-user-plus"></i>
+            <a href="/daftar-feedback" class="nav-link">
+              <i class="nav-icon far fa-envelope"></i>
               <p>
                 Tambah User
               </p>

@@ -29,7 +29,7 @@
             <div class="icon">
               <i class="fa-solid fa-typewriter"></i>
             </div>
-            <a href="/dashboard/posts" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\DashboardPostController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use App\Http\Controllers\DashboardPostController;
 |
 */
 
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware('auth');
+Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
 
 Route::get('/input-foto', function(){
     return view('dashboard.upload-gallery',[

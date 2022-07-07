@@ -29,12 +29,12 @@
 
                     <div class="mb-3">
                         <label for="slug" class="form-label">Slug</label>
-                        <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value={{ old('slug',$post->slug) }}>
-                        @error('slug')
+                        <input type="text" class="form-control" id="slug" name="slug" required value={{ old('slug',$post->slug) }}>
+                        {{-- @error('slug')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
-                    @enderror
+                    @enderror --}}
                     </div>
                     <div class="form-group">
                         <label>Kategori Post</label>
