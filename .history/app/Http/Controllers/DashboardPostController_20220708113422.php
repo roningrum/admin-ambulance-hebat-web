@@ -54,13 +54,8 @@ class DashboardPostController extends Controller
             'body'=>'required',
         ]);
 
-        if($request->file('img_blog')){
-            $validatedData['img_blog']= $request->file('img_blog')->store('post-image');
-        }
-
         $validatedData['user_id']= auth()->user()->id;
         $validatedData['excerpt']= Str::limit(strip_tags($request->body, 200));
-        $validatedData['published_at']=now();
 
         // var_dump($validatedData);
         Post::create($validatedData);

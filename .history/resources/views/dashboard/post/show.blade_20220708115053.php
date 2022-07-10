@@ -12,22 +12,21 @@
                         <a href="/dashboard/posts/{{ $posts->slug }}/edit" class="btn btn-warning">
                             <i class="fa-solid fa-pen-to-square"></i>
                             Ubah</a>
-                        <form action="/dashboard/posts/{{ $posts->slug }}"method="post" class="d-inline">
-                            @method('delete')
-                            @csrf
-                            <button class="btn btn-danger"onclick="return confirm('Yakin Ingin Menghapus?')"><i
-                                    class="far fa-trash-alt"></i>Hapus Artikel</button>
-                        </form>
-
-                        @if ($posts->img_blog)
-                        <div style="max-height: 350px; overflow:hidden">
-                            <img src="{{ asset('storage/'.$posts->img_blog )}}" class="img-fluid my-3"alt="">                
+                            <form action="/dashboard/posts/{{ $posts->slug }}"method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="btn btn-danger"onclick="return confirm('Yakin Ingin Menghapus?')"><i class="far fa-trash-alt"></i>Hapus Artikel</button>
+                            </form>
+                        
+                            @if ($post->image)
+                            <img src="{{ $posts->img_blog }}"
+                            class="img-fluid my-3"alt="">
+                        <div class="mt-3">
+                            {!! $posts->body !!}
                         </div>
-                        @else
-                        <div style="max-height: 350px; overflow:hidden">
-                            <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" class="img-fluid my-3"alt="">                
-                        </div>
-                        @endif
+                            @endif
+                        <img src="{{ $posts->img_blog }}"
+                            class="img-fluid my-3"alt="">
                         <div class="mt-3">
                             {!! $posts->body !!}
                         </div>

@@ -19,15 +19,13 @@
                                     class="far fa-trash-alt"></i>Hapus Artikel</button>
                         </form>
 
-                        @if ($posts->img_blog)
+                        @if ($post->image)
                         <div style="max-height: 350px; overflow:hidden">
                             <img src="{{ asset('storage/'.$posts->img_blog )}}" class="img-fluid my-3"alt="">                
                         </div>
-                        @else
-                        <div style="max-height: 350px; overflow:hidden">
-                            <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" class="img-fluid my-3"alt="">                
-                        </div>
+                            
                         @endif
+                        <img src="{{ $posts->img_blog }}" class="img-fluid my-3"alt="">
                         <div class="mt-3">
                             {!! $posts->body !!}
                         </div>

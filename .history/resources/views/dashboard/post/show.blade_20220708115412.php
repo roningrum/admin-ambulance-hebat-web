@@ -19,7 +19,7 @@
                                     class="far fa-trash-alt"></i>Hapus Artikel</button>
                         </form>
 
-                        @if ($posts->img_blog)
+                        @if ($post->image)
                         <div style="max-height: 350px; overflow:hidden">
                             <img src="{{ asset('storage/'.$posts->img_blog )}}" class="img-fluid my-3"alt="">                
                         </div>

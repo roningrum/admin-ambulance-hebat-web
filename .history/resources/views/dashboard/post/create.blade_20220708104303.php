@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Judul Post</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required value={{ old('title') }}>
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value={{ old('title') }}>
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -40,10 +40,15 @@
                     </div>
 
 
+                    <div class="custom-file">
+                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="customFile">
+                        <label class="custom-file-label" for="customFile">Upload Image</label>
+                      </div>
+
                     <div class="mb-3">
-                        <label for="img_blog" class="form-label">Upload Foto</label>
-                        <input class="form-control @error('img_blog') is-invalid @enderror" type="file" id="img_blog" name="img_blog">
-                        @error('img_blog')
+                        <label for="image" class="form-label">Upload Foto</label>
+                        <input class="form-control  " type="file" id="image" name="image">
+                        @error('image')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>

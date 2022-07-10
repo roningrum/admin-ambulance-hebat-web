@@ -60,7 +60,7 @@ class DashboardPostController extends Controller
 
         $validatedData['user_id']= auth()->user()->id;
         $validatedData['excerpt']= Str::limit(strip_tags($request->body, 200));
-        $validatedData['published_at']=now();
+        $validatedData['published_at']= Str::limit(strip_tags($request->body, 200));
 
         // var_dump($validatedData);
         Post::create($validatedData);

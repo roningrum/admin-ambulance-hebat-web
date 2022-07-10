@@ -18,42 +18,50 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Judul Post</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required value={{ old('title') }}>
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                            name="title" required autofocus value={{ old('title') }}>
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
-                  
+
                     <div class="mb-3">
                         <label for="slug" class="form-label">Slug</label>
-                        <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value={{ old('slug') }}>
+                        <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug"
+                            name="slug" required value={{ old('slug') }}>
                     </div>
+
                     <div class="form-group mb-3">
                         <label>Kategori Post</label>
                         <select class="form-control" name="category_id">
                             @foreach ($categories as $category)
-                            <option value="{{ $category->id }}" {{ old('category_id') == $category->id?'selected':'' }}>{{ $category->name }}</option>
+                                <option value="{{ $category->id }}"
+                                    {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
 
-
-                    <div class="mb-3">
-                        <label for="img_blog" class="form-label">Upload Foto</label>
-                        <input class="form-control @error('img_blog') is-invalid @enderror" type="file" id="img_blog" name="img_blog">
-                        @error('img_blog')
-                        <div class="invalid-feedback">
-                            {{ $message }}
+                    <div class="form-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="img_blog"
+                                name="img_blog">
+                            <label class="custom-file-label" for="img_blog">Unggah Foto Artikel</label>
+                            @error('img_blog')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
-                    @enderror
-                      </div>
+                    </div>
+                
 
                     <div class="form-group">
-                        <label for="slug">Body</label>
+                        <label for="body">Body</label>
                         @error('body')
-                        <p class="text-danger">{{ $message }}</p>
+                            <p class="text-danger">{{ $message }}</p>
                         @enderror
                         <input id="body" type="hidden" name="body" required value="{{ old('body') }}">
                         <trix-editor input="body"></trix-editor>
@@ -76,7 +84,7 @@
                 .then(response => response.json())
                 .then(data => slug.value = data.slug)
         });
-        document.addEventListener('trix-file-accept', function(e){
+        document.addEventListener('trix-file-accept', function(e) {
             e.preventDefault();
         });
     </script>

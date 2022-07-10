@@ -51,7 +51,7 @@ class DashboardPostController extends Controller
             'slug' =>'required|unique:posts',
             'category_id' =>'required',
             'img_blog'=>'image|file|max:1024',
-            'body'=>'required',
+            'body'=>'required'
         ]);
 
         if($request->file('img_blog')){
@@ -60,7 +60,6 @@ class DashboardPostController extends Controller
 
         $validatedData['user_id']= auth()->user()->id;
         $validatedData['excerpt']= Str::limit(strip_tags($request->body, 200));
-        $validatedData['published_at']=now();
 
         // var_dump($validatedData);
         Post::create($validatedData);

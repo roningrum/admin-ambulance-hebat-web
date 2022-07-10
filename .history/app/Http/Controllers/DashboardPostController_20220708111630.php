@@ -50,21 +50,14 @@ class DashboardPostController extends Controller
             'title' =>'required|max:255',
             'slug' =>'required|unique:posts',
             'category_id' =>'required',
-            'img_blog'=>'image|file|max:1024',
+            'img_blog'=>'required|image|file|max:1024',
             'body'=>'required',
         ]);
-
-        if($request->file('img_blog')){
-            $validatedData['img_blog']= $request->file('img_blog')->store('post-image');
-        }
-
         $validatedData['user_id']= auth()->user()->id;
         $validatedData['excerpt']= Str::limit(strip_tags($request->body, 200));
-        $validatedData['published_at']=now();
-
-        // var_dump($validatedData);
-        Post::create($validatedData);
-        return redirect('/dashboard/posts')->with('success', 'Artikel baru berhasil ditambahkan');
+        var_dump($validatedData)
+        // Post::create($validatedData);
+        // return redirect('/dashboard/posts')->with('success', 'Artikel baru berhasil ditambahkan');
 
     }
 
