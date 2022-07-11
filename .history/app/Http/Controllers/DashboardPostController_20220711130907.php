@@ -153,9 +153,6 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if($post->img_blog){
-            Storage::delete($post->img_blog);
-        }
         Post::destroy($post->id);
         return redirect('/dashboard/posts')->with('success', 'Artikel berhasil dihapus');
     }

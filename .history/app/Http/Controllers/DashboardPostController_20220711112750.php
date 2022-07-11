@@ -7,7 +7,6 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
 class DashboardPostController extends Controller
@@ -120,14 +119,6 @@ class DashboardPostController extends Controller
         }
 
         $validatedData = $request->validate($rules);
-           
-        if($request->file('img_blog')){
-            if($request->oldImage){
-                Storage::delete($request->oldImage);
-            }
-            $validatedData['img_blog']= $request->file('img_blog')->store('post-image');
-        }
-
         $validatedData['user_id']= auth()->user()->id;
         $validatedData['excerpt']= Str::limit(strip_tags($request->body, 200));
 
@@ -153,9 +144,6 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if($post->img_blog){
-            Storage::delete($post->img_blog);
-        }
         Post::destroy($post->id);
         return redirect('/dashboard/posts')->with('success', 'Artikel berhasil dihapus');
     }
