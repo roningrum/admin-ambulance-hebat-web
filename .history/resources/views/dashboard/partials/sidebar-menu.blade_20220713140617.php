@@ -49,7 +49,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/dashboard/image" class="nav-link {{ Request::is('dashboard/image/*') ? 'active':'' }}">
+            <a href="/dashboard/image" class="nav-link {{ Request::is('dashboard/image/') ? 'active':'' }}">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Foto Kegiatan

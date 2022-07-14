@@ -32,14 +32,14 @@
               </p> --}}
             </a>
           </li>
-          {{-- <li class="nav-item">
+          <li class="nav-item">
             <a href="/dashboard/posts/create" class="nav-link {{ Request::is('dashboard/posts/create') ? 'active':'' }}">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Buat Post
               </p>
             </a>
-          </li> --}}
+          </li>
           <li class="nav-item">
             <a href="/dashboard/posts" class="nav-link {{ Request::is('dashboard/posts/*') ? 'active':'' }}">
               <i class="nav-icon fas fa-columns"></i>

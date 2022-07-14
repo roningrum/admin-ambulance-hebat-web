@@ -53025,5 +53025,13 @@ a.text-muted:hover {
 .dark-mode .border-dark {
   border-color: #4b545c !important;
 }
+
+.img-photo{
+  background-size: cover;
+  width:200px;
+  height:300px;
+  object-fit: contain;
+}
+
 /*# sourceMappingURL=adminlte.css.map */
 

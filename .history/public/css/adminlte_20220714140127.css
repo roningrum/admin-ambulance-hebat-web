@@ -53025,5 +53025,14 @@ a.text-muted:hover {
 .dark-mode .border-dark {
   border-color: #4b545c !important;
 }
+.gallery img {
+    display: flex;
+    max-width: 1200px;
+    height: 200px;
+    object-fit: cover;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
 /*# sourceMappingURL=adminlte.css.map */
 

@@ -19,6 +19,7 @@ use App\Models\ImageGallery;
 
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware('auth');
 
+Route::get('/input-foto',ImageGalleryController::class);
 Route::get('/daftar-post', function(){
     return view('daftar-post',[
         "title" =>"daftar-post"
@@ -32,7 +33,6 @@ Route::get('/daftar-feedback', function(){
 
 Route::get('/dashboard/posts/checkSlug',[DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
-Route::resource('/dashboard/image',ImageGalleryController::class)->middleware('auth');
 Route::get('/',[Admin\Auth\LoginController::class, 'loginForm']);
 Route::post('/',[Admin\Auth\LoginController::class, 'authenticate'])->name('login');
 Route::post('/logout',[Admin\Auth\LoginController::class, 'logout']);
