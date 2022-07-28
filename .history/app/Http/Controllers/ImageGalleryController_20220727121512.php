@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\ImageGallery;
 use App\Http\Requests\StoreImageGalleryRequest;
 use App\Http\Requests\UpdateImageGalleryRequest;
-use Illuminate\Support\Facades\Storage;
 use PHPUnit\Framework\MockObject\Stub\ReturnStub;
 
 class ImageGalleryController extends Controller
@@ -75,12 +74,41 @@ class ImageGalleryController extends Controller
      * @param  \App\Models\ImageGallery  $imageGallery
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ImageGallery $imageGallery)
     {
-        $item = ImageGallery::findOrFail($id);
-        return view('dashboard.image.edit',[
-            'image'=>$item
-        ]);    
+        //
+        $rules =[
+            'title' =>'required|max:255',
+            // 'slug' => 'required|unique:posts',
+            'category_id' =>'required',
+            'body'=>'required',
+            'img_blog'=>'image|file|max:1024'
+        ];
+
+        if($request->slug != $post->slug){
+            $rules['slug'] = 'required|unique:posts';
+        }
+
+        $validatedData = $request->validate($rules);
+           
+        if($request->file('img_blog')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['img_blog']= $request->file('img_blog')->store('post-image');
+        }
+
+        $validatedData['user_id']= auth()->user()->id;
+        $validatedData['excerpt']= Str::limit(strip_tags($request->body, 200));
+
+        // var_dump($validatedData);
+        // die();
+
+        Post::where('id', $post->id)
+        ->update($validatedData);
+
+        return redirect('/dashboard/posts')->with('success', 'Artikel baru berhasil diubah');
+
     }
 
     /**
@@ -90,32 +118,9 @@ class ImageGalleryController extends Controller
      * @param  \App\Models\ImageGallery  $imageGallery
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateImageGalleryRequest $request, $id)
+    public function update(UpdateImageGalleryRequest $request, ImageGallery $imageGallery)
     {
         //
-        $rules =[
-            'title' =>'required|max:255',
-            'image'=>'image|file|max:1024'
-        ];
-
-        $validatedData = $request->validate($rules);
-           
-        if($request->file('image')){
-            if($request->oldImage){
-                Storage::delete($request->oldImage);
-            }
-            $validatedData['image']= $request->file('image')->store('post-image');
-        }
-
-        $validatedData['user_id']= auth()->user()->id;
-
-        // var_dump($validatedData);
-        // die();
-
-        ImageGallery::where('id', $id)->update($validatedData);
-
-        return redirect('/dashboard/image')->with('success', 'Artikel baru berhasil diubah');
-
     }
 
     /**

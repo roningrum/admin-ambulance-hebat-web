@@ -47,11 +47,13 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('image.edit', $img->id) }}">
-                                        <button type="button" class="btn btn-warning">
+                                    <button type="button"  class="btn btn-warning">
+                                        <a href="/dashboard/image/{{ $img->title }}">
                                             <i class="fa-solid fa-eye"></i>
-                                        </button>
-                                    </a>
+                                        </a>
+                                    </button>
+           
+                                 
                                     <button class="btn btn-danger"onclick="return confirm('Yakin Ingin Menghapus?')"><i class="far fa-trash-alt"></i></button>
                                 </td>
                             </tr>

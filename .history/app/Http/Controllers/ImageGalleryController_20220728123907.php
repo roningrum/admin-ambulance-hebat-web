@@ -114,7 +114,7 @@ class ImageGalleryController extends Controller
 
         ImageGallery::where('id', $id)->update($validatedData);
 
-        return redirect('/dashboard/image')->with('success', 'Artikel baru berhasil diubah');
+        return redirect('/dashboard/images')->with('success', 'Artikel baru berhasil diubah');
 
     }
 

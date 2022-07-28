@@ -75,12 +75,12 @@ class ImageGalleryController extends Controller
      * @param  \App\Models\ImageGallery  $imageGallery
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ImageGallery $imageGallery)
     {
-        $item = ImageGallery::findOrFail($id);
         return view('dashboard.image.edit',[
-            'image'=>$item
-        ]);    
+            'gallery' => $imageGallery
+        ]);
+        
     }
 
     /**
@@ -90,21 +90,22 @@ class ImageGalleryController extends Controller
      * @param  \App\Models\ImageGallery  $imageGallery
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateImageGalleryRequest $request, $id)
+    public function update(UpdateImageGalleryRequest $request, ImageGallery $imageGallery)
     {
         //
         $rules =[
             'title' =>'required|max:255',
-            'image'=>'image|file|max:1024'
+            // 'slug' => 'required|unique:posts',
+            'img_blog'=>'image|file|max:1024'
         ];
 
         $validatedData = $request->validate($rules);
            
-        if($request->file('image')){
+        if($request->file('img_blog')){
             if($request->oldImage){
                 Storage::delete($request->oldImage);
             }
-            $validatedData['image']= $request->file('image')->store('post-image');
+            $validatedData['img_blog']= $request->file('image')->store('post-image');
         }
 
         $validatedData['user_id']= auth()->user()->id;
@@ -112,9 +113,10 @@ class ImageGalleryController extends Controller
         // var_dump($validatedData);
         // die();
 
-        ImageGallery::where('id', $id)->update($validatedData);
+        ImageGallery::where('id', $imageGallery->id)
+        ->update($validatedData);
 
-        return redirect('/dashboard/image')->with('success', 'Artikel baru berhasil diubah');
+        return redirect('/dashboard/images')->with('success', 'Artikel baru berhasil diubah');
 
     }
 

@@ -31,58 +31,42 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $no=1?>
                         @foreach ($gallery as $img)
                             <tr>
-                                <td>{{$no}}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $img->title}}</td>
                                 <td>
                                     <a href="#" class="pop">
                                         <img src="{{ asset('storage/'.$img->image) }}" 
-                                        width="200px"
-                                        class="img-thumbnail"
-                                        data-toggle="modal"
-                                        data-target="#imgModal{{ $no}}"
+                                        height="200px"
                                         alt="Foto kegiaan">
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('image.edit', $img->id) }}">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </button>
-                                    </a>
+                                    <button type="button" class="btn bg-info">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
+                                    </button>
                                     <button class="btn btn-danger"onclick="return confirm('Yakin Ingin Menghapus?')"><i class="far fa-trash-alt"></i></button>
                                 </td>
                             </tr>
-                            <?php $no++?>
                         @endforeach
                     </tbody>
                 </table>
             </div>
+
+         
         
         </div>
-        <?php $no=1?>
-        @foreach ( $gallery as $img )
-        <div class="modal fade" id="imgModal<?php echo $no?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <center>
-                            <img src="{{ asset('storage/'.$img->image) }}" alt="" class="img-responsive" width="90%" height="auto">
-                        </center>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php $no++?>   
-        @endforeach  
+        <script>
+            $(function() {
+              $('.pop').on('click', function() {
+                $('.imagepreview').attr('src',$(this).find('img').attr('src'));
+                $('#imagemodal').modal('show');   
+                });		
+            });
+         </script>
     </div>
     
 @endsection

@@ -93,8 +93,10 @@ class ImageGalleryController extends Controller
     public function update(UpdateImageGalleryRequest $request, $id)
     {
         //
+        $data = $request->all();
         $rules =[
             'title' =>'required|max:255',
+            // 'slug' => 'required|unique:posts',
             'image'=>'image|file|max:1024'
         ];
 
@@ -112,9 +114,10 @@ class ImageGalleryController extends Controller
         // var_dump($validatedData);
         // die();
 
-        ImageGallery::where('id', $id)->update($validatedData);
+        ImageGallery::where('id', $id)
+        ->update($validatedData);
 
-        return redirect('/dashboard/image')->with('success', 'Artikel baru berhasil diubah');
+        return redirect('/dashboard/images')->with('success', 'Artikel baru berhasil diubah');
 
     }
 

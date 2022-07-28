@@ -34,7 +34,7 @@
                         <?php $no=1?>
                         @foreach ($gallery as $img)
                             <tr>
-                                <td>{{$no}}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $img->title}}</td>
                                 <td>
                                     <a href="#" class="pop">
@@ -42,16 +42,16 @@
                                         width="200px"
                                         class="img-thumbnail"
                                         data-toggle="modal"
-                                        data-target="#imgModal{{ $no}}"
+                                        data-target="#imgModal{{ $no }}"
                                         alt="Foto kegiaan">
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('image.edit', $img->id) }}">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </button>
-                                    </a>
+                                    <button type="button" class="btn bg-info">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
+                                    </button>
                                     <button class="btn btn-danger"onclick="return confirm('Yakin Ingin Menghapus?')"><i class="far fa-trash-alt"></i></button>
                                 </td>
                             </tr>
@@ -81,8 +81,8 @@
                 </div>
             </div>
         </div>
-        <?php $no++?>   
-        @endforeach  
+        @endforeach 
+        <?php $no++?>     
     </div>
     
 @endsection

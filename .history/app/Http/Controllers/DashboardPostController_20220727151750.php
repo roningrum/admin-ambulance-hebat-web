@@ -91,12 +91,12 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('dashboard.post.edit', [
-             'post' => $post,
-             'categories'=> Category::all()
-        ]);
-        // dd($post->title);
-        // die();
+        // return view('dashboard.post.edit', [
+        //     'post' => $post,
+        //     'categories'=> Category::all()
+        // ]);
+        dd($post->title)
+        die();
     }
 
     /**

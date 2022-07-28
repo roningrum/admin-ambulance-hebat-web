@@ -47,8 +47,8 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('image.edit', $img->id) }}">
-                                        <button type="button" class="btn btn-warning">
+                                    <a href="/dashboard/image/{{ $img->title }}/edit">
+                                        <button type="button"  class="btn btn-warning">
                                             <i class="fa-solid fa-eye"></i>
                                         </button>
                                     </a>

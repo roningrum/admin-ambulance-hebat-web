@@ -95,8 +95,8 @@ class DashboardPostController extends Controller
              'post' => $post,
              'categories'=> Category::all()
         ]);
-        // dd($post->title);
-        // die();
+        dd($post->title);
+        die();
     }
 
     /**
