@@ -22,11 +22,31 @@
     <div class="container-login">
         <div class="wrap-login">
             <form action="/" method="post" class="login-form text-center">
+                @if (session()->has('success'))
+                <div class="container">
+                    <div class="row" id="error-container">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                        </div>
+                    </div>
+                </div>
+                @else
+                <div class="container">
+                    <div class="row" id="error-container">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session('loginError') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                        </div>
+                    </div>
+                </div>
+                @endif
                 <img class="mt-4 mb-4" src="assets/ahha_logo.png" alt="logo-ambulancehebat" height="150">
                 <h1 class="login-form-title">Login Admin Web</h1>
                 @csrf
                 <div class="wrap-input">
-                    <input type="text" name="username" id="username" class="input-form" placeholder="username" required>
+                    <input type="text" name="username" id="username" class="form-control @error('username') is-invalid  
+                    @enderror" placeholder="username" required value="{{ old('username') }}"required autocomplete="username">
                 </div>
                 <div class="wrap-input">
                     <input type="password" name="password" id="password" class="input-form" placeholder="password" required>

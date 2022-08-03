@@ -7,7 +7,6 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
-use Exception;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
@@ -51,7 +50,7 @@ class DashboardPostController extends Controller
     {
         //
         $validatedData = $request->validate([
-            'title' =>'required',
+            'title' =>'required|max:255',
             'slug' =>'required|unique:posts',
             'category_id' =>'required',
             'img_blog'=>'image|file|max:1024',
@@ -67,15 +66,8 @@ class DashboardPostController extends Controller
         $validatedData['published_at']=now();
 
         // var_dump($validatedData);
-
-        try{
-            Post::create($validatedData);
-            return redirect('/dashboard/posts')->with('success', 'Artikel baru berhasil ditambahkan');  
-        }
-        catch(Exception $e){
-            return redirect()->back()->with('error', 'silakan cek kembali');
-        }
-       
+        Post::create($validatedData);
+        return redirect('/dashboard/posts')->with('success', 'Artikel baru berhasil ditambahkan');
 
     }
 

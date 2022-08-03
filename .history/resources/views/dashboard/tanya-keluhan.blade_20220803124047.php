@@ -33,7 +33,7 @@
                     <td>{{ $masukan->subjek }}</td>
                     <td>{{ $masukan->pesan }}</td>
                     <td>
-                        <button type="button" class="btn btn-primary"><i class="fa-solid fa-envelope"></i></button>
+                        <button type="button" class="btn btn-success"><i class="fa-solid fa-envelope"></i></button>
                         <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                     </td>
                 </tr>

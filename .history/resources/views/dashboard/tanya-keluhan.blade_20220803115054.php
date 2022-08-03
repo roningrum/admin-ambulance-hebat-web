@@ -25,21 +25,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($feedback as $masukan )
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $masukan->name }}</td>
-                    <td>{{ $masukan->email }}</td>
-                    <td>{{ $masukan->subjek }}</td>
-                    <td>{{ $masukan->pesan }}</td>
+                    <td>1.</td>
+                    <td>Update software</td>
                     <td>
-                        <button type="button" class="btn btn-primary"><i class="fa-solid fa-envelope"></i></button>
+                        <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                        </div>
+                    </td>
+                    <td><span class="badge bg-danger">55%</span></td>
+                    <td>Update software</td>
+                    <td>
+                        <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
                         <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                     </td>
                 </tr>
-
-                @endforeach
-                
             </tbody>
         </table>
     </div>

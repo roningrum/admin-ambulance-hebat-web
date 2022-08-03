@@ -13,16 +13,10 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function __construct(){
-        $this->middleware(function($request,$next){
-            if (session('success')) {
+        $this->middleware(function($request,$nest){
+            if(session('success')){
                 Alert::success(session('success'));
             }
-
-            if (session('error')) {
-                Alert::error(session('error'));
-            }
-
-            return $next($request);
         });
     }
 }

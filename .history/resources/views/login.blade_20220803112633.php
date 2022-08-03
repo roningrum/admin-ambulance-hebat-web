@@ -29,6 +29,10 @@
                     <input type="text" name="username" id="username" class="input-form" placeholder="username" required>
                 </div>
                 <div class="wrap-input">
+                    <input type="text" name="username" id="username" class="form-control @error('username') is-invalid  
+                    @enderror" placeholder="username" required value="{{ old('username') }}"required autocomplete="username">
+                </div>
+                <div class="wrap-input">
                     <input type="password" name="password" id="password" class="input-form" placeholder="password" required>
                 </div>
                 <div class="container-login-btn-form mt-3">

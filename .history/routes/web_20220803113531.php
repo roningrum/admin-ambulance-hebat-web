@@ -25,7 +25,7 @@ Route::get('/daftar-post', function(){
         "title" =>"daftar-post"
     ]);
 });
-Route::resource('/daftar-feedback', FeedbackController::class)->middleware('auth');
+Route::resource('/daftar-feedback', FeedbackController::class);
 
 Route::get('/dashboard/posts/checkSlug',[DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
