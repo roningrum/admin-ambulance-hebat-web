@@ -19,7 +19,7 @@ class ImageGalleryController extends Controller
     {
         //
         return view('dashboard.image.gallery',[
-            'gallery'=>ImageGallery::where('user_id',auth()->user()->id)->get()
+            'gallery'=>ImageGallery::where('user_id',auth()->user()->id)->get()->limit(4);
         ]);
     }
 

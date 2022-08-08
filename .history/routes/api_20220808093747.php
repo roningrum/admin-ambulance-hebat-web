@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\Api\ImageGalleryController;
 use App\Http\Resources\ImageGalleryResource;
 use App\Models\ImageGallery;
 use Illuminate\Http\Request;
@@ -20,6 +20,4 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::apiResource('/foto-kegiatan', App\Http\Controllers\Api\ImageGalleryController::class);
-Route::apiResource('/artikel', App\Http\Controllers\Api\PostController::class);
-Route::apiResource('/artikel/{id}', App\Http\Controllers\Api\PostController::class);
+Route::apiResource('/foto-kegiatan', ImageGalleryAPIController::class);

@@ -21,5 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::apiResource('/foto-kegiatan', App\Http\Controllers\Api\ImageGalleryController::class);
-Route::apiResource('/artikel', App\Http\Controllers\Api\PostController::class);
-Route::apiResource('/artikel/{id}', App\Http\Controllers\Api\PostController::class);
+Route::apiResource('/artikel', 'artikel.index');

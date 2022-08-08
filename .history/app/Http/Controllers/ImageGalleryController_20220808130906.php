@@ -52,7 +52,7 @@ class ImageGalleryController extends Controller
         }
         $validatedData['user_id']= auth()->user()->id;
         ImageGallery::create($validatedData);
-        return redirect('dashboard/image')->with('success', 'Gambar berhasil disimpan');
+        return redirect('dashboard/image')->with('success', 'Gambar berhasil diunggah');
     }
 
     /**

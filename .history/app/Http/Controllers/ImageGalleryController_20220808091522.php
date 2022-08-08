@@ -52,7 +52,7 @@ class ImageGalleryController extends Controller
         }
         $validatedData['user_id']= auth()->user()->id;
         ImageGallery::create($validatedData);
-        return redirect('dashboard/image')->with('success', 'Gambar berhasil disimpan');
+        return redirect('dashboard/image');
     }
 
     /**
@@ -95,7 +95,7 @@ class ImageGalleryController extends Controller
         //
         $rules =[
             'title' =>'required|max:255',
-            'image'=>'image|file|max:5024'
+            'image'=>'image|file|max:1024'
         ];
 
         $validatedData = $request->validate($rules);
@@ -114,7 +114,7 @@ class ImageGalleryController extends Controller
 
         ImageGallery::where('id', $id)->update($validatedData);
 
-        return redirect('/dashboard/image')->with('success', 'Gambar berhasil dirubah');
+        return redirect('/dashboard/image')->with('success', 'Artikel baru berhasil diubah');
 
     }
 
