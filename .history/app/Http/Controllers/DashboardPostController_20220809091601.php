@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Exception;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class DashboardPostController extends Controller
 {
@@ -60,7 +61,7 @@ class DashboardPostController extends Controller
             $validatedData['img_blog']= $request->file('img_blog')->store('post-image');
         }
 
-        $validatedData['slug']=Str::slug($request->title);
+        $validatedData['slug']=Str:slug($request->title);
         $validatedData['user_id']= auth()->user()->id;
         $validatedData['excerpt']= Str::limit(strip_tags($request->body, 200));
         $validatedData['published_at']=now();
@@ -125,7 +126,11 @@ class DashboardPostController extends Controller
             'body'=>'required',
             'img_blog'=>'image|file|max:1024'
         ];
-        
+
+        if($request->slug != $post->slug){
+            $rules['slug'] = 'required|unique:posts';
+        }
+
         $validatedData = $request->validate($rules);
            
         if($request->file('img_blog')){
@@ -135,7 +140,6 @@ class DashboardPostController extends Controller
             $validatedData['img_blog']= $request->file('img_blog')->store('post-image');
         }
 
-        $validatedData['slug']= Str::slug($request->title);;
         $validatedData['user_id']= auth()->user()->id;
         $validatedData['excerpt']= Str::limit(strip_tags($request->body, 200));
 

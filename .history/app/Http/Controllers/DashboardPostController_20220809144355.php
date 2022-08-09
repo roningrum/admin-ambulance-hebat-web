@@ -125,7 +125,11 @@ class DashboardPostController extends Controller
             'body'=>'required',
             'img_blog'=>'image|file|max:1024'
         ];
-        
+
+        // if($request->slug == $post->slug){
+        //     $rules['slug'] = Str::slug($request->title);
+        // }
+
         $validatedData = $request->validate($rules);
            
         if($request->file('img_blog')){

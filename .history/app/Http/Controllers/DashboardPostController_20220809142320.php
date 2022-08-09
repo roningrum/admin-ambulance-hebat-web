@@ -125,8 +125,6 @@ class DashboardPostController extends Controller
             'body'=>'required',
             'img_blog'=>'image|file|max:1024'
         ];
-        
-        $validatedData = $request->validate($rules);
            
         if($request->file('img_blog')){
             if($request->oldImage){
@@ -135,7 +133,7 @@ class DashboardPostController extends Controller
             $validatedData['img_blog']= $request->file('img_blog')->store('post-image');
         }
 
-        $validatedData['slug']= Str::slug($request->title);;
+        $validatedData['slug']=Str::slug($request->title);
         $validatedData['user_id']= auth()->user()->id;
         $validatedData['excerpt']= Str::limit(strip_tags($request->body, 200));
 
